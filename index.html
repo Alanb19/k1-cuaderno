@@ -230,21 +230,26 @@ const PROGRAM = {
       {label:"Calentamiento (8 min)", items:[
         {name:"Caminata rápida o bici", scheme:"5 min", note:"Subir pulsaciones de forma suave."},
         {name:"Movilidad articular", scheme:"tobillos · caderas · torácica", note:"Rotaciones torácicas, balanceos de pierna, círculos de hombro."},
+        {name:"Cuello y muñecas (prep combate)", scheme:"1–2 min", note:"Movilidad suave de cuello (sí–no–laterales) y muñecas. Prepara las zonas que más sufren impacto y carga en K1."},
       ]},
       {label:"Activación", items:[
         {name:"Puente de glúteos", scheme:"2 × 15", sets:2, reps:"15", v:"glute+bridge+exercise"},
         {name:"Bird Dog", scheme:"2 × 10 / lado", sets:2, reps:"10/l", v:"bird+dog+exercise"},
       ]},
       {label:"Bloque principal", items:[
-        {name:"Sentadilla Goblet", scheme:"4 × 8", sets:4, reps:"8", rest:90, v:"goblet+squat", note:"<span class='tag'>Objetivo:</span> técnica antes que peso."},
+        {name:"Sentadilla Goblet", scheme:"4 × 8", sets:4, reps:"8", rest:90, v:"goblet+squat", note:"<span class='tag'>Objetivo:</span> técnica antes que peso. Baja controlado en 2–3 s y sube con intención."},
         {name:"Dominadas asistidas / Jalón al pecho", scheme:"4 × 8", sets:4, reps:"8", rest:90, v:"lat+pulldown"},
-        {name:"Press militar con mancuernas", scheme:"4 × 8", sets:4, reps:"8", rest:90, v:"dumbbell+shoulder+press"},
+        {name:"Press militar mancuernas o Landmine press", scheme:"4 × 8", sets:4, reps:"8", rest:90, v:"landmine+press", note:"<span class='tag'>K1:</span> el landmine es más amable con el hombro ya cargado por los golpeos. Elige una opción y mantenla durante la fase."},
         {name:"Peso muerto rumano", scheme:"3 × 10", sets:3, reps:"10", rest:90, v:"romanian+deadlift", note:"Bisagra de cadera, espalda neutra."},
-        {name:"Farmer Walk", scheme:"4 recorridos · 30 m", sets:4, reps:"30m", rest:90, v:"farmer+walk", note:"Carga pesada, tronco firme."},
+        {name:"Farmer Walk", scheme:"4 recorridos · 30 m", sets:4, reps:"30m", rest:90, v:"farmer+walk", note:"Carga pesada, tronco firme. Variante: <b>suitcase carry</b> (peso en un solo lado) para anti-inclinación lateral."},
       ]},
       {label:"Core", items:[
         {name:"Pallof Press", scheme:"3 × 12", sets:3, reps:"12", rest:60, v:"pallof+press", note:"Anti-rotación: el core no debe girar."},
         {name:"Plancha", scheme:"3 × 40 s", sets:3, reps:"40s", rest:60, v:"front+plank"},
+      ]},
+      {label:"Prevención K1 (cuello + tobillo)", items:[
+        {name:"Isométricos de cuello", scheme:"2 × 20 s × 4 lados", sets:2, reps:"4 lados", rest:45, v:"neck+isometric+exercises+boxing", note:"Resiste con la mano en frente, nuca y laterales. Carga <b>muy suave</b> y progresiva: un cuello fuerte amortigua los golpes y reduce el riesgo de KO."},
+        {name:"Elevación de gemelos", scheme:"3 × 15", sets:3, reps:"15", rest:45, v:"standing+calf+raise", note:"Tobillo y Aquiles fuertes = mejor footwork y menos lesiones al chequear patadas."},
       ]},
     ]
   },
@@ -253,34 +258,39 @@ const PROGRAM = {
     goal:"Estabilidad, control corporal, trabajo unilateral y corrección de desequilibrios.",
     blocks:[
       {label:"Calentamiento (8 min)", items:[
-        {name:"Igual que el martes", scheme:"caminata + movilidad", note:"Tobillos, caderas, torácica, hombros."},
+        {name:"Igual que el martes", scheme:"caminata + movilidad + cuello", note:"Tobillos, caderas, torácica, hombros y movilidad suave de cuello/muñecas."},
       ]},
       {label:"Principal", items:[
         {name:"Bulgarian Split Squat", scheme:"3 × 8 / pierna", sets:3, reps:"8/l", rest:90, v:"bulgarian+split+squat", note:"Controla la rodilla, no la dejes caer hacia dentro."},
+        {name:"Cossack Squat", scheme:"3 × 6 / lado", sets:3, reps:"6/l", rest:90, v:"cossack+squat", note:"<span class='tag'>K1:</span> abre cadera y aductores para patadas altas y desplazamientos laterales. Previene tirones de ingle. Baja hasta donde controles."},
         {name:"Remo con mancuerna", scheme:"4 × 10", sets:4, reps:"10", rest:90, v:"one+arm+dumbbell+row"},
         {name:"Press inclinado con mancuernas", scheme:"4 × 8", sets:4, reps:"8", rest:90, v:"incline+dumbbell+press"},
         {name:"Hip Thrust", scheme:"3 × 10", sets:3, reps:"10", rest:90, v:"hip+thrust", note:"Aprieta glúteo arriba, costillas abajo."},
         {name:"Face Pull", scheme:"3 × 15", sets:3, reps:"15", rest:60, v:"face+pull", note:"Salud de hombro: clave para K1."},
       ]},
-      {label:"Core", items:[
+      {label:"Core + cuello", items:[
         {name:"Dead Bug", scheme:"3 × 12", sets:3, reps:"12", rest:60, v:"dead+bug+exercise"},
         {name:"Side Plank", scheme:"3 × 30 s / lado", sets:3, reps:"30s", rest:60, v:"side+plank"},
+        {name:"Isométricos de cuello", scheme:"2 × 20 s × 4 lados", sets:2, reps:"4 lados", rest:45, v:"neck+isometric+exercises+boxing", note:"Segunda dosis semanal de cuello. Carga suave y constante."},
       ]},
     ]
   },
   sab: {
     icon:"⚡", name:"Sábado", title:"Potencia + movilidad", meta:"explosivo, no agotador",
-    goal:"Convertir la fuerza en potencia útil para el K1. Calidad y velocidad, no fatiga. Pierna pesada fuera hoy.",
+    goal:"Convertir la fuerza en potencia útil para el K1. Calidad y velocidad, no fatiga. Pierna pesada fuera hoy. Si llegas justo, prioriza los 4 primeros ejercicios y deja el resto.",
     blocks:[
       {label:"Calentamiento (10 min)", items:[
         {name:"Movilidad + activación", scheme:"10 min", note:"Prepara cadera, tobillo y hombro antes de explotar."},
+        {name:"Pogo hops (rigidez de tobillo)", scheme:"2 × 20 saltitos", v:"pogo+hops+drill", note:"Saltitos cortos y rígidos como un muelle, mínimo contacto con el suelo. Activa los tendones para la pliometría y el footwork."},
       ]},
       {label:"Potencia", items:[
-        {name:"Saltos al cajón", scheme:"3 × 5", sets:3, reps:"5", rest:120, v:"box+jump", note:"Aterrizaje suave y controlado. Baja caminando."},
-        {name:"Lanzamiento balón medicinal al suelo", scheme:"4 × 8", sets:4, reps:"8", rest:90, v:"medicine+ball+slam", note:"Máxima intención en cada lanzamiento."},
+        {name:"Saltos al cajón", scheme:"3 × 5", sets:3, reps:"5", rest:120, v:"box+jump", note:"<span class='tag'>Vertical.</span> Aterrizaje suave y controlado. Baja caminando."},
+        {name:"Saltos laterales / Skater jumps", scheme:"3 × 6 / lado", sets:3, reps:"6/l", rest:90, v:"lateral+bound+skater+jump", note:"<span class='tag'>K1:</span> potencia lateral para el juego de pies, entradas y esquives. Aterriza estable sobre una pierna antes de rebotar."},
+        {name:"Lanzamiento rotacional balón medicinal", scheme:"3 × 6 / lado", sets:3, reps:"6/l", rest:90, v:"rotational+medicine+ball+throw", note:"<span class='tag'>K1:</span> transfiere directo a la potencia de puños y patadas. Gira desde la cadera y el pie, no desde el brazo."},
+        {name:"Lanzamiento balón medicinal al suelo", scheme:"4 × 8", sets:4, reps:"8", rest:90, v:"medicine+ball+slam", note:"<span class='tag'>Vertical.</span> Máxima intención en cada lanzamiento."},
         {name:"Kettlebell Swing", scheme:"4 × 12", sets:4, reps:"12", rest:90, v:"kettlebell+swing", note:"Potencia de cadera, no de brazos."},
-        {name:"Battle Rope", scheme:"6 × 20 s", sets:6, reps:"20s", rest:60, v:"battle+rope"},
-        {name:"Farmer Walk pesado", scheme:"3 vueltas", sets:3, reps:"vuelta", rest:90, v:"farmer+walk"},
+        {name:"Battle Rope", scheme:"4 × 20 s", sets:4, reps:"20s", rest:60, v:"battle+rope", note:"Acondicionamiento corto. Si vas sobrado de energía, suma 1–2 series."},
+        {name:"Farmer Walk pesado", scheme:"3 vueltas", sets:3, reps:"vuelta", rest:90, v:"farmer+walk", note:"Opcional si llegas fatigado: prioriza la potencia."},
       ]},
       {label:"Movilidad final (15 min)", items:[
         {name:"Rutina de movilidad", scheme:"15 min", note:"Tobillos · caderas · flexores · isquios · torácica · hombros."},
@@ -314,7 +324,7 @@ const PROGRAM = {
 };
 
 const ORDER = ["lun","mar","mie","jue","vie","sab","dom"];
-const STORE = "k1train_v1";
+const STORE = "k1train_v2";
 
 /* ---------- ESTADO ---------- */
 let data = {};
@@ -552,7 +562,7 @@ drawTimer();
 /* ---------- OFFLINE: cachear este archivo vía Service Worker embebido ---------- */
 if("serviceWorker" in navigator){
   const swCode = `
-    const C="k1train-cache-v1";
+    const C="k1train-cache-v2";
     self.addEventListener("install", e=>{ self.skipWaiting(); });
     self.addEventListener("activate", e=>{ e.waitUntil(self.clients.claim()); });
     self.addEventListener("fetch", e=>{
