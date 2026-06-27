@@ -84,6 +84,46 @@
   .prog-h{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--warn);font-weight:700}
   .prog.on .prog-h{color:var(--accent)}
 
+  /* Nutrición */
+  .nutri-target{background:rgba(58,210,159,.08);border:1px solid rgba(58,210,159,.3);border-radius:12px;padding:12px 14px;margin-bottom:12px;font-size:13px;color:var(--txt);line-height:1.5}
+  .nutri-target b{color:var(--accent2)}
+  .nutri-help{font-size:12.5px;color:var(--muted);margin-bottom:6px;line-height:1.5}
+  .fcat{font-size:13px;font-weight:700;margin:20px 0 8px;color:var(--txt)}
+  .food{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px}
+  .food .fn{flex:1;min-width:0}
+  .food .fn .nm{font-size:14px;font-weight:600;line-height:1.25}
+  .food .fn .q{font-size:11.5px;color:var(--muted);margin-top:2px}
+  .food .badges{display:flex;gap:6px;flex:0 0 auto}
+  .bdg{font-size:10px;font-weight:600;border-radius:8px;padding:5px 7px;text-align:center;line-height:1.15;min-width:48px}
+  .bdg .bv{font-size:13px;font-weight:800;display:block}
+  .bdg.p{background:rgba(58,210,159,.12);color:var(--accent2);border:1px solid rgba(58,210,159,.3)}
+  .bdg.k{background:var(--card2);color:var(--muted);border:1px solid var(--line)}
+  .plate{background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:11px 13px;margin-bottom:9px;font-size:13px}
+  .plate .pt{font-weight:700;margin-bottom:3px}
+  .plate .tot{color:var(--accent2);font-weight:700;font-size:12px;margin-top:6px}
+  .tip{font-size:12.5px;color:var(--muted);background:rgba(255,177,60,.06);border:1px solid rgba(255,177,60,.22);border-radius:10px;padding:9px 12px;margin-bottom:8px;line-height:1.45}
+  /* Sumador "Hoy" */
+  .today{position:sticky;top:0;z-index:6;background:var(--bg);padding:8px 0 10px;margin-bottom:6px;border-bottom:1px solid var(--line)}
+  .today-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+  .today-h{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-weight:700}
+  .today-clear{background:none;border:none;color:#56607a;font-size:12px;text-decoration:underline;cursor:pointer}
+  .today-nums{display:flex;gap:9px;margin-bottom:8px}
+  .tnum{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:9px 12px;display:flex;flex-direction:column}
+  .tnum .tnv{font-size:22px;font-weight:800;color:var(--accent2);line-height:1.1}
+  .tnum .tnv small{font-size:12px;color:var(--muted);font-weight:600}
+  .tnum:last-child .tnv{color:var(--txt)}
+  .tnum .tnl{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+  .today-bar{height:8px;background:var(--card);border-radius:999px;overflow:hidden;margin-bottom:9px}
+  .today-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .25s}
+  .tally-list{display:flex;flex-direction:column;gap:5px}
+  .tally-empty{font-size:12px;color:var(--muted);font-style:italic;padding:2px 0}
+  .tally-row{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:9px;padding:6px 8px 6px 11px}
+  .tally-row .tn{flex:1;font-size:13px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .tally-row .tk{font-size:11px;color:var(--muted);flex:0 0 auto}
+  .tally-row .tdec{flex:0 0 auto;width:27px;height:27px;border-radius:7px;border:1px solid var(--line);background:var(--card2);color:var(--accent);font-size:17px;font-weight:700;cursor:pointer;line-height:1}
+  .food-add{flex:0 0 auto;width:40px;height:40px;border-radius:11px;border:1px solid rgba(58,210,159,.4);background:rgba(58,210,159,.1);color:var(--accent2);font-size:21px;font-weight:700;cursor:pointer;line-height:1;display:flex;align-items:center;justify-content:center}
+  .food-add:active{transform:scale(.9)}
+
   /* Block headers */
   .blk{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);
     margin:20px 0 8px;font-weight:700;display:flex;align-items:center;gap:8px}
@@ -379,9 +419,12 @@ const PROGRAM = {
     lines:["El músculo crece y el sistema nervioso se recupera hoy.","Camina, estira suave si quieres, duerme bien y come real."],
     list:["Sueño de calidad","Comida real, cena ligera","Mate en lugar de exceso de café","Recupera para empezar fuerte el lunes"]
   },
+  nutri: {
+    icon:"🥗", name:"Comida", title:"Nutrición", nutri:true
+  },
 };
 
-const ORDER = ["lun","mar","mie","jue","vie","sab","dom"];
+const ORDER = ["lun","mar","mie","jue","vie","sab","dom","nutri"];
 const STORE = "k1train_v3";
 const STORE_OLD = "k1train_v2";
 const TOTAL_WEEKS = 12;
@@ -396,7 +439,7 @@ const DELOAD_WEEK = 8;    // semana sugerida de descarga
  *   - log: historial "última vez" por ejercicio (lo más reciente al final)
  */
 let store = {};
-function defStore(){ return { _meta:{ week:1, weekStart:todayISO() }, days:{}, log:{} }; }
+function defStore(){ return { _meta:{ week:1, weekStart:todayISO() }, days:{}, log:{}, nutri:{ date:todayISO(), items:{} } }; }
 
 (function loadStore(){
   // 1) intenta v3
@@ -501,6 +544,7 @@ function exKey(bi,ii){ return bi+"_"+ii; }
 
 function renderContent(){
   const p = PROGRAM[current];
+  if(p.nutri){ renderNutrition(); document.getElementById("resetDay").style.display="none"; return; }
   if(p.info){ renderInfo(p); document.getElementById("resetDay").style.display="none"; return; }
   document.getElementById("resetDay").style.display="block";
 
@@ -671,6 +715,139 @@ function weightField(key, name, val){
   const u = unitInfo(name);
   if(u.hide) return "";
   return `<div class="field"><label>${u.label}</label><input type="text" inputmode="decimal" placeholder="—" data-w="${key}" value="${val||""}"></div>`;
+}
+
+/* ---------- NUTRICIÓN: guía libre de alimentos ---------- */
+/* Valores aproximados por ración (cocido/listo para comer). p = proteína (g), k = kcal. */
+const FOODS = [
+  {cat:"🍳 Proteína animal", items:[
+    {n:"Huevos revueltos (3 enteros)", q:"con un poco de ghee", p:18, k:215},
+    {n:"Pechuga de pollo a la plancha", q:"150 g", p:46, k:245},
+    {n:"Muslo de pollo", q:"150 g", p:38, k:280},
+    {n:"Ternera magra", q:"150 g", p:46, k:310},
+    {n:"Salmón", q:"150 g", p:37, k:310},
+    {n:"Pescado blanco (merluza)", q:"200 g", p:36, k:180},
+    {n:"Atún / bonito al natural", q:"1 lata escurrida (80 g)", p:20, k:95},
+    {n:"Gambas / langostinos", q:"150 g", p:36, k:150}
+  ]},
+  {cat:"🌱 Proteína vegetal", items:[
+    {n:"Lentejas cocidas", q:"1 taza (200 g)", p:18, k:230},
+    {n:"Garbanzos cocidos", q:"200 g", p:18, k:270},
+    {n:"Tofu firme", q:"150 g", p:17, k:170},
+    {n:"Tempeh", q:"100 g", p:19, k:190},
+    {n:"Edamame", q:"150 g", p:17, k:190}
+  ]},
+  {cat:"🥛 Lácteos proteicos", items:[
+    {n:"Yogur griego natural", q:"150 g", p:15, k:135},
+    {n:"Requesón / cottage", q:"150 g", p:17, k:150},
+    {n:"Kéfir", q:"250 ml", p:9, k:150}
+  ]},
+  {cat:"🍠 Carbohidratos inteligentes", items:[
+    {n:"Avena", q:"60 g en seco", p:10, k:230},
+    {n:"Arroz integral cocido", q:"150 g", p:4, k:165},
+    {n:"Quinoa cocida", q:"150 g", p:6, k:180},
+    {n:"Boniato", q:"200 g", p:3, k:180},
+    {n:"Pan integral / centeno", q:"2 rebanadas", p:8, k:160}
+  ]},
+  {cat:"🥑 Grasas buenas", items:[
+    {n:"Aguacate", q:"½ unidad", p:2, k:160},
+    {n:"Almendras / nueces", q:"30 g", p:6, k:180},
+    {n:"Crema de cacahuete / almendra", q:"1 cda (20 g)", p:5, k:120},
+    {n:"Semillas (chía / lino)", q:"20 g", p:4, k:110},
+    {n:"Aceite de oliva virgen o ghee", q:"1 cda", p:0, k:120}
+  ]},
+  {cat:"🥦 Verduras y fruta", items:[
+    {n:"Verduras cocidas / salteadas", q:"libre (≈150 g)", p:3, k:45},
+    {n:"Ensalada verde", q:"libre", p:2, k:30},
+    {n:"Fruta (manzana, pera)", q:"1 pieza", p:1, k:80},
+    {n:"Frutos rojos", q:"150 g", p:1, k:70}
+  ]},
+  {cat:"➕ Extra proteína (rápido, si vas justo)", items:[
+    {n:"Proteína en polvo (whey o vegana)", q:"1 scoop (30 g)", p:24, k:120}
+  ]}
+];
+const PLATES = [
+  {t:"Desayuno (~6:45)", d:"3 huevos revueltos + 2 rebanadas de pan integral + 1 fruta", p:27, k:455},
+  {t:"Almuerzo fuerte (mediodía)", d:"Pollo 150 g + arroz integral 150 g + verduras salteadas + ½ aguacate", p:55, k:620},
+  {t:"Almuerzo veg", d:"Lentejas 200 g + quinoa 150 g + verduras + 1 cda aceite + yogur griego", p:35, k:680},
+  {t:"Cena ligera (temprano)", d:"Pescado blanco 200 g + ensalada verde + 1 cda aceite de oliva", p:38, k:330}
+];
+const TIPS = [
+  "🔆 <b>Mediodía = comida principal.</b> Tu fuego digestivo (agni) está al máximo: es el mejor momento para la ración más grande y los carbohidratos.",
+  "🌙 <b>Cena ligera y temprana</b>, cocida y caliente (más fácil de digerir): proteína magra + verduras, pocos carbos.",
+  "🍵 <b>Mate</b> entre horas en vez de picar. Evita azúcares rápidos solos: acompaña siempre el carbo con proteína o grasa para no disparar la glucosa.",
+  "🧂 Prioriza <b>cocido sobre crudo</b> y especias digestivas (jengibre, cúrcuma, comino) para asimilar mejor.",
+  "💪 La <b>proteína es lo no negociable</b>: si un día vas con prisa, asegúrala primero (huevos, yogur griego o una lata de atún son rápidos). El músculo depende de esto."
+];
+/* ---------- SUMADOR DIARIO ---------- */
+const PROT_TARGET = 120;
+const FOODIDX = {};
+(function(){ let i=0; FOODS.forEach(c=>c.items.forEach(it=>{ it._id="f"+(i++); FOODIDX[it._id]={n:it.n,p:it.p,k:it.k}; })); })();
+
+function todayTally(){
+  if(!store.nutri || store.nutri.date!==todayISO()) store.nutri = { date:todayISO(), items:{} };
+  return store.nutri;
+}
+function addFood(id){ const t=todayTally(); t.items[id]=(t.items[id]||0)+1; save(); }
+function decFood(id){ const t=todayTally(); if(t.items[id]){ t.items[id]--; if(t.items[id]<=0) delete t.items[id]; save(); } }
+function clearTally(){ store.nutri={ date:todayISO(), items:{} }; save(); }
+function tallyTotals(){ const t=todayTally(); let p=0,k=0; for(const id in t.items){ const f=FOODIDX[id]; if(f){ p+=f.p*t.items[id]; k+=f.k*t.items[id]; } } return { p:Math.round(p), k:Math.round(k) }; }
+
+function todayPanelHTML(){
+  const tot=tallyTotals(), t=todayTally();
+  const pct=Math.min(100, Math.round(tot.p/PROT_TARGET*100));
+  const ids=Object.keys(t.items);
+  const list = ids.length
+    ? ids.map(id=>{ const f=FOODIDX[id], c=t.items[id];
+        return `<div class="tally-row"><span class="tn">${f.n}${c>1?" ×"+c:""}</span><span class="tk">${f.p*c} g · ${f.k*c} kcal</span><button class="tdec" data-dec="${id}" aria-label="Quitar">−</button></div>`;
+      }).join("")
+    : `<div class="tally-empty">Toca el ＋ de un alimento para sumarlo a tu día.</div>`;
+  return `<div class="today">
+    <div class="today-top"><span class="today-h">Hoy</span>${ids.length?`<button class="today-clear" data-clear="1">vaciar</button>`:""}</div>
+    <div class="today-nums">
+      <div class="tnum"><span class="tnv">${tot.p}<small> / ${PROT_TARGET} g</small></span><span class="tnl">proteína</span></div>
+      <div class="tnum"><span class="tnv">${tot.k}</span><span class="tnl">kcal</span></div>
+    </div>
+    <div class="today-bar"><div class="today-fill" style="width:${pct}%"></div></div>
+    <div class="tally-list">${list}</div>
+  </div>`;
+}
+function updateToday(){ const el=document.getElementById("nutriToday"); if(el){ el.innerHTML=todayPanelHTML(); wireToday(); } }
+function wireToday(){
+  document.querySelectorAll("[data-dec]").forEach(b=> b.onclick=()=>{ decFood(b.dataset.dec); updateToday(); });
+  const c=document.querySelector("[data-clear]"); if(c) c.onclick=()=>{ if(confirm("¿Vaciar el conteo de hoy?")){ clearTally(); updateToday(); } };
+}
+function wireNutrition(){
+  document.querySelectorAll(".food-add").forEach(b=> b.onclick=()=>{
+    addFood(b.dataset.add); const f=FOODIDX[b.dataset.add];
+    showToast("+"+f.p+" g · "+f.k+" kcal"); if(navigator.vibrate) navigator.vibrate(15);
+    updateToday();
+  });
+  wireToday();
+}
+
+function renderNutrition(){
+  let h = `<div class="session-head"><h2>🥗 Nutrición</h2><span class="meta">guía libre · suma tu día</span></div>`;
+  h += `<div id="nutriToday">${todayPanelHTML()}</div>`;
+  h += `<div class="nutri-target">🎯 Meta: <b>~120 g de proteína</b> al día en 3 comidas, con <b>déficit moderado</b> (~1900–2100 kcal). Toca el ＋ de cada alimento y la app suma por ti.</div>`;
+  h += `<div class="nutri-help"><b>No es una dieta cerrada</b>: es tu despensa, combina libre. Cada alimento muestra su <span style="color:var(--accent2)">proteína</span> y kcal por ración.</div>`;
+  FOODS.forEach(c=>{
+    h += `<div class="fcat">${c.cat}</div>`;
+    c.items.forEach(it=>{
+      h += `<div class="food"><div class="fn"><div class="nm">${it.n}</div><div class="q">${it.q}</div></div>`+
+           `<div class="badges"><div class="bdg p"><span class="bv">${it.p} g</span>prot</div>`+
+           `<div class="bdg k"><span class="bv">${it.k}</span>kcal</div></div>`+
+           `<button class="food-add" data-add="${it._id}" aria-label="Sumar al día">＋</button></div>`;
+    });
+  });
+  h += `<div class="fcat">🍽️ Ejemplos de combinación (para llegar a ~120 g)</div>`;
+  PLATES.forEach(pl=>{
+    h += `<div class="plate"><div class="pt">${pl.t}</div><div>${pl.d}</div><div class="tot">≈ ${pl.p} g proteína · ${pl.k} kcal</div></div>`;
+  });
+  h += `<div class="fcat">🌿 Cómo comerlo (ayurveda + ritmo circadiano)</div>`;
+  TIPS.forEach(t=> h += `<div class="tip">${t}</div>`);
+  contentEl.innerHTML = h;
+  wireNutrition();
 }
 
 function renderInfo(p){
@@ -851,7 +1028,7 @@ drawTimer();
 /* ---------- OFFLINE: cachear este archivo vía Service Worker embebido ---------- */
 if("serviceWorker" in navigator){
   const swCode = `
-    const C="k1train-cache-v5";
+    const C="k1train-cache-v7";
     self.addEventListener("install", e=>{ self.skipWaiting(); });
     self.addEventListener("activate", e=>{ e.waitUntil(
       caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C).map(k=>caches.delete(k)))).then(()=>self.clients.claim())
