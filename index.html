@@ -542,7 +542,7 @@ function renderContent(){
           ${it.note?`<div class="ex-note">${it.note}</div>`:""}
           ${trackable?`<div class="sets">${setsHtml}</div>`:""}
           ${trackable?`<div class="inputs">
-            <div class="field"><label>Peso (kg)</label><input type="text" inputmode="decimal" placeholder="—" data-w="${key}" value="${st.weight||""}"></div>
+            ${weightField(key, it.name, st.weight)}
             <div class="field"><label>RPE / esfuerzo</label>
               <select data-r="${key}">
                 <option value="">—</option>
@@ -595,11 +595,13 @@ function lastTimeHTML(day, name){
   if(!e || (!e.w && !e.rpe)){
     return `<div class="lasttime"><span class="lt-h">Última vez</span><span class="lt-empty">Sin registro previo — esta sesión marca tu referencia.</span></div>`;
   }
-  const w = e.w ? `<b>${e.w} kg</b>` : "<b>peso s/d</b>";
-  const r = e.rpe ? ` · RPE <b>${e.rpe}</b>` : "";
+  const u = unitInfo(name);
+  const w = (!u.hide && e.w) ? `<b>${e.w} ${u.suffix}</b>` : "";
+  const r = e.rpe ? `RPE <b>${e.rpe}</b>` : "";
   const hint = (curWeek()>=PUSH_WEEK && e.rpe && +e.rpe<=7)
-    ? " <span style='color:var(--accent)'>↑ margen para subir</span>" : "";
-  return `<div class="lasttime"><span class="lt-h">Última vez · ${fmtDate(e.date)}</span>${w}${r}${hint}</div>`;
+    ? "<span style='color:var(--accent)'>↑ margen para subir</span>" : "";
+  const mid = [w, r, hint].filter(Boolean).join(" · ");
+  return `<div class="lasttime"><span class="lt-h">Última vez · ${fmtDate(e.date)}</span>${mid}</div>`;
 }
 
 /* ---------- PLAN DE CARGA (progresión sem 5–8) ---------- */
@@ -643,6 +645,32 @@ function loadRuleHTML(day){
     return `<div class="loadrule">📈 <b>La potencia no se progresa con más peso, sino con más velocidad.</b> Descanso completo entre series; si baja la explosividad o la técnica, paras. Calidad siempre.</div>`;
   }
   return `<div class="loadrule">📈 <b>Regla de progresión (sem 5–8):</b> si completas TODAS las series al RPE objetivo dejando 1–2 repes en la recámara, la próxima vez sube el incremento de cada ejercicio. ¿RPE 9–10 o fallaste repes? Repite el mismo peso y consolida.</div>`;
+}
+
+/* ---------- UNIDAD DE MEDIDA POR EJERCICIO ---------- */
+/* Por defecto se registra Peso (kg). Los plyo/cajón se miden por altura,
+   y los de peso corporal/tiempo no llevan carga (solo RPE). */
+const UNIT = {
+  "Saltos al cajón":"Altura cajón (cm)",
+  "Saltos laterales / Skater jumps":false,
+  "Battle Rope":false,
+  "Plancha":false,
+  "Side Plank":false,
+  "Dead Bug":false,
+  "Bird Dog":false,
+  "Puente de glúteos":false,
+  "Isométricos de cuello":false
+};
+function unitInfo(name){
+  const u = UNIT[name];
+  if(u===false) return { hide:true, label:"", suffix:"" };
+  if(typeof u==="string"){ const m=u.match(/\(([^)]+)\)/); return { hide:false, label:u, suffix:m?m[1]:"" }; }
+  return { hide:false, label:"Peso (kg)", suffix:"kg" };
+}
+function weightField(key, name, val){
+  const u = unitInfo(name);
+  if(u.hide) return "";
+  return `<div class="field"><label>${u.label}</label><input type="text" inputmode="decimal" placeholder="—" data-w="${key}" value="${val||""}"></div>`;
 }
 
 function renderInfo(p){
@@ -823,7 +851,7 @@ drawTimer();
 /* ---------- OFFLINE: cachear este archivo vía Service Worker embebido ---------- */
 if("serviceWorker" in navigator){
   const swCode = `
-    const C="k1train-cache-v4";
+    const C="k1train-cache-v5";
     self.addEventListener("install", e=>{ self.skipWaiting(); });
     self.addEventListener("activate", e=>{ e.waitUntil(
       caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C).map(k=>caches.delete(k)))).then(()=>self.clients.claim())
