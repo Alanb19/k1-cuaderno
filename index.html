@@ -225,10 +225,10 @@ const yt = q => "https://www.youtube.com/results?search_query=" + q;
 const PROGRAM = {
   mar: {
     icon:"💪", name:"Martes", title:"Fuerza A", meta:"60–70 min · construir fuerza",
-    goal:"Aprender a generar fuerza y técnica. No busques peso máximo: busca control y calidad.",
+    goal:"Construir fuerza y técnica. Semanas 1–4: control y técnica (RPE 6–7). Desde la semana 5 sube carga en los básicos hasta RPE 8 (deja 1–2 repes en la recámara, nunca al fallo). Usa el RPE de cada serie para regularte.",
     blocks:[
       {label:"Calentamiento (8 min)", items:[
-        {name:"Caminata rápida o bici", scheme:"5 min", note:"Subir pulsaciones de forma suave."},
+        {name:"Comba, caminata rápida o bici", scheme:"5 min", v:"jump+rope+boxing+warm+up", note:"La comba es el mejor primer para K1: activa tobillo, gemelo y ritmo de pies. Si la manejas, úsala aquí."},
         {name:"Movilidad articular", scheme:"tobillos · caderas · torácica", note:"Rotaciones torácicas, balanceos de pierna, círculos de hombro."},
         {name:"Cuello y muñecas (prep combate)", scheme:"1–2 min", note:"Movilidad suave de cuello (sí–no–laterales) y muñecas. Prepara las zonas que más sufren impacto y carga en K1."},
       ]},
@@ -251,14 +251,17 @@ const PROGRAM = {
         {name:"Isométricos de cuello", scheme:"2 × 20 s × 4 lados", sets:2, reps:"4 lados", rest:45, v:"neck+isometric+exercises+boxing", note:"Resiste con la mano en frente, nuca y laterales. Carga <b>muy suave</b> y progresiva: un cuello fuerte amortigua los golpes y reduce el riesgo de KO."},
         {name:"Elevación de gemelos", scheme:"3 × 15", sets:3, reps:"15", rest:45, v:"standing+calf+raise", note:"Tobillo y Aquiles fuertes = mejor footwork y menos lesiones al chequear patadas."},
       ]},
+      {label:"Cardio final", items:[
+        {name:"Caminata inclinada", scheme:"12–15 min · inclinación 8–10%", v:"incline+treadmill+walk+fat+loss", note:"<span class='tag'>Quemagrasa de baja interferencia.</span> Ritmo que te deje hablar (RPE 5–6), <b>sin agarrarte a las barras</b>. Suma gasto sin restarte músculo ni recuperación. Si llegas muy justo de energía, recórtala o sáltala."},
+      ]},
     ]
   },
   jue: {
     icon:"💪", name:"Jueves", title:"Fuerza B", meta:"60–70 min · pierna unilateral + rotación",
-    goal:"Estabilidad, control corporal, trabajo unilateral y corrección de desequilibrios.",
+    goal:"Estabilidad, control y trabajo unilateral. Mismo plan de carga que el martes: técnica primero y, desde la semana 5, progresa hasta RPE 8 en los principales sin llegar al fallo.",
     blocks:[
       {label:"Calentamiento (8 min)", items:[
-        {name:"Igual que el martes", scheme:"caminata + movilidad + cuello", note:"Tobillos, caderas, torácica, hombros y movilidad suave de cuello/muñecas."},
+        {name:"Igual que el martes", scheme:"comba/bici + movilidad + cuello", note:"Empieza con 5 min de comba o bici. Tobillos, caderas, torácica, hombros y movilidad suave de cuello/muñecas."},
       ]},
       {label:"Principal", items:[
         {name:"Bulgarian Split Squat", scheme:"3 × 8 / pierna", sets:3, reps:"8/l", rest:90, v:"bulgarian+split+squat", note:"Controla la rodilla, no la dejes caer hacia dentro."},
@@ -273,6 +276,9 @@ const PROGRAM = {
         {name:"Side Plank", scheme:"3 × 30 s / lado", sets:3, reps:"30s", rest:60, v:"side+plank"},
         {name:"Isométricos de cuello", scheme:"2 × 20 s × 4 lados", sets:2, reps:"4 lados", rest:45, v:"neck+isometric+exercises+boxing", note:"Segunda dosis semanal de cuello. Carga suave y constante."},
       ]},
+      {label:"Cardio final", items:[
+        {name:"Caminata inclinada", scheme:"12–15 min · inclinación 8–10%", v:"incline+treadmill+walk+fat+loss", note:"<span class='tag'>Quemagrasa de baja interferencia.</span> Ritmo que te deje hablar (RPE 5–6), <b>sin agarrarte a las barras</b>. Mismo objetivo que el martes: gasto extra sin tocar la recuperación."},
+      ]},
     ]
   },
   sab: {
@@ -281,6 +287,7 @@ const PROGRAM = {
     blocks:[
       {label:"Calentamiento (10 min)", items:[
         {name:"Movilidad + activación", scheme:"10 min", note:"Prepara cadera, tobillo y hombro antes de explotar."},
+        {name:"Comba", scheme:"3–5 min", v:"jump+rope+boxing+warm+up", note:"Primer de footwork y tobillo antes de la pliometría. Cuerda ligera, pies rápidos."},
         {name:"Pogo hops (rigidez de tobillo)", scheme:"2 × 20 saltitos", v:"pogo+hops+drill", note:"Saltitos cortos y rígidos como un muelle, mínimo contacto con el suelo. Activa los tendones para la pliometría y el footwork."},
       ]},
       {label:"Potencia", items:[
